@@ -1,0 +1,32 @@
+<div class="container">
+    <mat-card class="product-card">
+        <mat-card-header>
+            <mat-card-title>New Product</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="addProductFormGroup" class="add-product">
+                <mat-form-field class="width100">
+                    <input matInput placeholder="Product Name" formControlName="productName">
+                    <mat-error>{{getProductNameError()}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="width100">
+                    <mat-label>Product Description</mat-label>
+                    <textarea matInput placeholder="Product Description"
+                        formControlName="productDescription"></textarea>
+                        <mat-error>{{getProductDescriptionError()}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="width100">
+                    <mat-label>Product Price</mat-label>
+                    <input matInput placeholder="Product Price" formControlName="productPrice">
+                    <mat-error>{{getProductPriceError()}}</mat-error>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions align="right">
+            <button mat-button (click)="backToProductList()">CANCEL</button>
+            <button mat-raised-button color="primary" [disabled]="addProductFormGroup.invalid" (click)="saveProduct()">ADD</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
